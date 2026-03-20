@@ -7,6 +7,6 @@ import Finddonor from './pages/Finddonor.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  <Finddonor />
+  <Dashboard />
   </StrictMode>,
 )
