@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from "../../components/Navbar";
 
-export default function SignUp() {
+const SignUp = ()=> {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,7 +27,6 @@ export default function SignUp() {
 
   return (
     <div className="bg-[#f8f6f6]">
-      <Navbar />
 
       <main className="py-12 px-6">
         <div className="max-w-[560px] mx-auto">
@@ -202,3 +200,4 @@ export default function SignUp() {
     </div>
   );
 }
+export default SignUp;

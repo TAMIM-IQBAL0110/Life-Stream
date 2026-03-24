@@ -3,9 +3,10 @@ import HomePage from './pages/HomePage';
 import SignUp from './pages/AuthPages/SignUp'
 import SignIn from './pages/AuthPages/SignIn';
 import Verification from './pages/AuthPages/Verification';
-import Navbar from './components/Navbar';
+
 import UserProvider,{ useUser } from './context/UserContext';
 import NotFound from './pages/NotFound';
+import Navbar from './components/Navbar';
 
 //public Route Layout Component
 const PublicRoute = () => {
