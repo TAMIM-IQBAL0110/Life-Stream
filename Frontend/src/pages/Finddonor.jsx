@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 function Finddonor() {
     const [location, setlocation] = useState("");
@@ -51,6 +52,7 @@ function Finddonor() {
 
     return (
         <>
+            <Navbar />
             <main className=" bg-[#f8f6f6] w-full">
                 <div className="max-w-6xl flex-1 justify-center mx-auto p-4 md:p-8">
                     <div className="grid gap-2 mb-6">

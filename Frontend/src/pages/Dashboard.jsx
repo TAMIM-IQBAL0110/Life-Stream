@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 function Profile({ onEdit }) {
     const name = "Fahimul Kadir";
@@ -91,7 +92,7 @@ function Profile({ onEdit }) {
                 </div>
 
 
-                <div className="mt-8 p-6 bg-linear-to-r from-[#ea2a33] to-rose-600 rounded-xl text-white">
+                <div className="mt-8 p-6 bg-red-600 rounded-xl text-white">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                         <div className="max-w-full">
                             <h3 className="text-xl font-bold mb-2">Ready for your next donation?</h3>
@@ -118,7 +119,7 @@ function EditProfile({ onBack }) {
 
     return (
         <>
-            <header className="bg-red-600 h-12 w-full fixed"></header>
+
             <main className="bg-[#f8f6f6] p-3 pt-18 flex justify-center w-full ">
                 <div className="grid gap-4 max-w-3xl w-full">
                     <p className="text-[12px] text-gray-600">
@@ -169,11 +170,10 @@ function EditProfile({ onBack }) {
                                 <input className="text-sm ring-1 ring-slate-200 py-2 px-3 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
                                     disabled
                                     type="text"
-                                    value={user.location}
+                                    value={user.bloodgroup}
                                     onChange={(e) => setuser(e.target.value)}
                                 />
                             </div>
-
                         </div>
 
                         <div className="grid gap-2 ">
@@ -220,6 +220,7 @@ function Dashboard() {
     const [edit, setedit] = useState(false);
     return (
         <>
+            <Navbar />
             {edit ?
                 <EditProfile onBack={() => setedit(false)} />
                 :
