@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+const Navbar = ()=> {
   return (
     <header className="flex items-center justify-between border-b border-red-200 px-6 md:px-20 py-4 sticky top-0 bg-white z-50">
       <Link to="/" className="flex items-center gap-2 text-red-600 hover:opacity-80 transition">
@@ -21,3 +21,4 @@ export default function Navbar() {
     </header>
   );
 }
+export default Navbar;
