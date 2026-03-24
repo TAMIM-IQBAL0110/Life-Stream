@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import HeroImage from "../assets/Hero_Section_Image.png";
 
 export default function HomePage() {
   return (
@@ -8,7 +9,7 @@ export default function HomePage() {
       <Navbar />
 
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-6 py-10 grid lg:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col gap-6">
           <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-xs font-bold w-fit">
             Emergency Support
@@ -37,9 +38,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-red-100 to-red-50 aspect-square rounded-3xl flex items-center justify-center">
-          <span className="text-9xl">🩸</span>
-        </div>
+        <img src={HeroImage} alt="Hero Image" className="" />
       </section>
 
       {/* HOW IT WORKS */}
@@ -51,7 +50,7 @@ export default function HomePage() {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           <div className="p-8 rounded-2xl bg-white shadow text-center">
-            <div className="text-4xl mb-4">🔍</div>
+            <div className="material-symbols-outlined text-3xl p-3 m-4 rounded-lg text-red-600 bg-red-100">search</div>
             <h3 className="font-bold text-xl mb-2">Search</h3>
             <p className="text-gray-500">
               Enter your location and blood type to see nearby donors.
@@ -59,7 +58,7 @@ export default function HomePage() {
           </div>
 
           <div className="p-8 rounded-2xl bg-white shadow text-center">
-            <div className="text-4xl mb-4">👤</div>
+            <div className="material-symbols-outlined text-3xl p-3 m-4 rounded-lg text-red-600 bg-red-100">person</div>
             <h3 className="font-bold text-xl mb-2">Find</h3>
             <p className="text-gray-500">
               Browse verified donors near you and check availability.
@@ -67,7 +66,7 @@ export default function HomePage() {
           </div>
 
           <div className="p-8 rounded-2xl bg-white shadow text-center">
-            <div className="text-4xl mb-4">💬</div>
+            <div className="material-symbols-outlined text-3xl p-3 m-4 rounded-lg text-red-600 bg-red-100">contact_support</div>
             <h3 className="font-bold text-xl mb-2">Contact</h3>
             <p className="text-gray-500">
               Connect with the donor and arrange the donation.
