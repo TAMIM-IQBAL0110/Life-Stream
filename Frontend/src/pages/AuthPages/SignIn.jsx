@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from "../components/Navbar";
 
-export default function SignIn() {
+const  SignIn = ()=> {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -14,7 +13,6 @@ export default function SignIn() {
 
   return (
     <div className="bg-[#f8f6f6]">
-      <Navbar />
 
       <div className="min-h-[calc(100vh-80px)] flex items-center justify-center px-6 py-12">
         <div className="w-full max-w-[440px] bg-white p-8 rounded-2xl shadow-md">
@@ -86,3 +84,4 @@ export default function SignIn() {
     </div>
   );
 }
+export default SignIn;
