@@ -112,66 +112,112 @@ function EditProfile({ onBack }) {
         email: "fahimul.kadir@example.com",
         phonenumber: "+1 234 567 8901",
         bloodgroup: "O Positive (O+)",
+        lastdonation: "2030-01-12",
         location: "San Francisco, CA"
     });
 
     return (
         <>
-            <div className="grid gap-5 md:grid-cols-2">
-                <div>
-                    <h1>Edit Profile</h1>
-                    <h2>Update your personal information and preferences</h2>
+            <header className="bg-red-600 h-12 w-full fixed"></header>
+            <main className="bg-[#f8f6f6] p-3 pt-18 flex justify-center w-full ">
+                <div className="grid gap-4 max-w-3xl w-full">
+                    <p className="text-[12px] text-gray-600">
+                        <span className="hover:cursor-pointer hover:text-red-500">
+                            Dashboard</span>
+                        {"\t\t>\t\t"}
+                        <span className="text-black font-medium">
+                            Edit Profile
+                        </span>
+                    </p>
+                    <div className="grid gap-6 rounded-xl p-7 w-full bg-white shadow-xl">
+                        <div>
+                            <h1 className="text-xl font-bold">Edit Profile</h1>
+                            <h2 className="text-slate-500">Update your personal information and preferences</h2>
+                        </div>
+                        <hr className="text-slate-200 my-2 -mx-7" />
+                        <div className="grid gap-5 md:grid-cols-2">
+                            <div className="grid gap-2">
+                                <h2 className="text-sm font-semibold text-slate-700">Full Name</h2>
+                                <input className="text-sm ring-1 ring-slate-200 py-2 px-3 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
+                                    type="text"
+                                    value={user.name}
+                                    onChange={(e) => setuser({...user, name: e.target.value})}
+                                />
+                            </div>
+
+                            <div className="grid gap-2">
+                                <h2 className="text-sm font-semibold text-slate-700">Email Address</h2>
+                                <input className="text-sm ring-1 ring-slate-200 py-2 px-3 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
+                                    type="text"
+                                    value={user.email}
+                                    onChange={(e) => setuser(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="grid gap-2">
+                                <h2 className="text-sm font-semibold text-slate-700">Phone Number</h2>
+                                <input className="text-sm ring-1 ring-slate-200 py-2 px-3 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
+                                    type="text"
+                                    value={user.phonenumber}
+                                    onChange={(e) => setuser(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="grid gap-2">
+                                <h2 className="text-sm font-semibold text-slate-700">Blood Group</h2>
+
+                                <input className="text-sm ring-1 ring-slate-200 py-2 px-3 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
+                                    disabled
+                                    type="text"
+                                    value={user.location}
+                                    onChange={(e) => setuser(e.target.value)}
+                                />
+                            </div>
+
+                        </div>
+
+                        <div className="grid gap-2 ">
+                                <h2 className="text-sm font-semibold text-slate-700">Location / City</h2>
+                                <div className="relative">
+                                    <input className="text-sm ring-1 ring-slate-200 py-2 px-9 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
+                                        type="text"
+                                        value={user.location}
+                                        onChange={(e) => setuser(e.target.value)}
+                                    />
+                                    <span className="material-symbols-outlined text-slate-400 absolute top-1.5 left-2">location_on</span>
+                                </div>
+
+                        </div>
+                        
+                        <div className="grid gap-2 ">
+                            <h2 className="text-sm font-semibold text-slate-700">Last blood Donation</h2>
+                            <div className="relative">
+                                <input className="text-sm ring-1 ring-slate-200 py-2 px-9 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
+                                    type="date"
+                                    value={user.lastdonation}
+                                    onChange={(e) => setuser(e.target.value)}
+                                />
+                                <span className="material-symbols-outlined text-slate-400 absolute top-1.5 left-2">location_on</span>
+                            </div>
+
+                        </div>
+                        <hr className="text-slate-200 my-2" />
+                        <div className="flex flex-col gap-5 md:flex-row md:justify-end">
+                            <button className="bg-white w-full text-slate-500 py-2.5 px-7 font-bold rounded-lg text-sm hover:bg-slate-100 cursor-pointer md:w-auto" onClick={onBack}>Cancel</button>
+                            <button className="bg-red-600 w-full text-white py-2.5 px-7 font-bold rounded-lg text-sm shadow-md hover:bg-red-500 cursor-pointer md:w-auto" onClick={() => {
+                                alert(user.name + " " + user.email + " " + user.phonenumber + " " + user.bloodgroup + " " + user.location);
+                            }}>Save changes</button>
+                        </div>
+                    </div>
+
                 </div>
-                <hr />
+            </main>
 
-                <div className="grid gap-2">
-                    <h2 className="text-sm font-semibold text-slate-700">Full Name</h2>
-                    <input className="text-sm ring-1 ring-slate-200 py-2 px-3 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
-                        type="text"
-                        value={user.name}
-                        onChange={(e) => setuser(e.target.value)}
-                    />
-                </div>
-
-                <div className="grid gap-2">
-                    <h2 className="text-sm font-semibold text-slate-700">Full Name</h2>
-                    <input className="text-sm ring-1 ring-slate-200 py-2 px-3 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
-                        type="text"
-                        value={user.name}
-                        onChange={(e) => setuser(e.target.value)}
-                    />
-                </div>
-
-                <div className="grid gap-2">
-                    <h2 className="text-sm font-semibold text-slate-700">Full Name</h2>
-                    <input className="text-sm ring-1 ring-slate-200 py-2 px-3 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
-                        type="text"
-                        value={user.name}
-                        onChange={(e) => setuser(e.target.value)}
-                    />
-                </div>
-
-                <div className="grid gap-2">
-                    <h2 className="text-sm font-semibold text-slate-700">Full Name</h2>
-                    
-                    <input className="text-sm ring-1 ring-slate-200 py-2 px-3 rounded-md w-full focus:ring-red-500 focus:ring-2 outline-0"
-                        type="text"
-                        value={user.phonenumber}
-                        onChange={(e) => setuser(e.target.value)}
-                    />
-                </div>
-
-                <button onClick={onBack}>Cancel</button>
-            </div>
-
-            <div>
-
-            </div>
         </>
     )
 }
 function Dashboard() {
-    const [edit, setedit] = useState(true);
+    const [edit, setedit] = useState(false);
     return (
         <>
             {edit ?
