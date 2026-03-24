@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 
-export default function BecomeDonor() {
+export default function SignUp() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
