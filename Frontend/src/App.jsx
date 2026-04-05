@@ -3,10 +3,12 @@ import HomePage from './pages/HomePage';
 import SignUp from './pages/AuthPages/SignUp'
 import SignIn from './pages/AuthPages/SignIn';
 import Verification from './pages/AuthPages/Verification';
+import Dashboard from './pages/Dashboard';
 
 import UserProvider,{ useUser } from './context/UserContext';
 import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
+import Finddonor from './pages/Finddonor';
 
 //public Route Layout Component
 const PublicRoute = () => {
@@ -58,24 +60,26 @@ export default function App() {
         <Routes>
 
           {/* Root Redirect */}
-          <Route path = "/" element = {<Root/>}/>
+          <Route path = "/" element = {<HomePage/>}/>
 
           {/* Auth Routes */}
-          <Route element={<PublicRoute />}>
-            <Route path = "/login" element = {<SignIn/>}/>
-            <Route path = "/register" element = {<SignUp/>}/>
+          {/* <Route element={<PublicRoute />}> */}
+            <Route path = "/signin" element = {<SignIn/>}/>
+            <Route path = "/become-a-donor" element = {<SignUp/>}/>
             <Route path = "/verify" element = {<Verification/>}/>
-          </Route>
+            <Route path = "/find-donor" element = {<Finddonor/>}/>
+
+          {/* </Route> */}
 
           {/* Protected Routes with navbar */}
-          <Route element = {<ProtectedRouteLayout/>}>
-            <Route element = {<DashboardLayout/>}>
-              <Route path = "/dashboard" element = {<HomePage/>}/>
+          {/* <Route element = {<ProtectedRouteLayout/>}>
+            <Route element = {<DashboardLayout/>}> */}
+              <Route path = "/dashboard" element = {<Dashboard/>}/>
               
               {/*  add your page here with proper file name and path  */}
 
-            </Route>
-          </Route >
+            {/* </Route>
+          </Route > */}
 
           {/* 404 Page */}
           <Route path="*" element={<NotFound />} />

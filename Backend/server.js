@@ -5,7 +5,8 @@ import connectDB from './config/db.js';
 import mongoose  from 'mongoose';
 import healthLimiter from './middlewares/healthLimiter.js';
 import authRoutes from './routes/authRoutes.js'
-import userRoutes from './routes/userRoutes.js';
+import donorRoutes from './routes/donorRoutes.js'
+import donorFindRoutes from './routes/donorFindRoutes.js';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -57,8 +58,8 @@ connectDB();
 
 //Route Handling
 app.use("/api/v1/auth",authRoutes);
-app.use("/api/v1/user",userRoutes);
-
+app.use("/api/v1/donor",donorRoutes);
+app.use("/api/v1/search",donorFindRoutes);
 
 
 // 404 Not Found Handler

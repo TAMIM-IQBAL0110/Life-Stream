@@ -1,15 +1,31 @@
-
 const validatePhoneNumber = (phoneNumber) => {
+    if (!phoneNumber) return false;
 
-    //check if the phone number is 11 digits long
-    if(phoneNumber.length !== 11) return false;
-    
-    // first 3 digits that match with Bangladeshi phone numbers
-    const first2Digits = phoneNumber.substring(0, 2);
-    const thirdDigit = phoneNumber.charAt(2);
+    // remove spaces and dashes
+    phoneNumber = phoneNumber.replace(/[\s-]/g, "");
+
+    // handle +880 or 880
+    if (phoneNumber.startsWith("+880")) {
+        phoneNumber = phoneNumber.slice(3);
+    } 
+    else if (phoneNumber.startsWith("880")) {
+        phoneNumber = phoneNumber.slice(2);
+    }
+
+    // check length (should be 11 digits after removing country code)
+    if (phoneNumber.length !== 11) return false;
+
+    // must be all digits
+    if (!/^\d+$/.test(phoneNumber)) return false;
+
+    // must start with 01
+    if (!phoneNumber.startsWith("01")) return false;
+
+    // valid operator digits
     const validThirdDigits = ["3", "5", "6", "7", "8", "9"];
-    if(first2Digits !== "01" || !validThirdDigits.includes(thirdDigit)) return false;
-    
+    if (!validThirdDigits.includes(phoneNumber[2])) return false;
+
     return true;
-}
+};
+
 export default validatePhoneNumber;
