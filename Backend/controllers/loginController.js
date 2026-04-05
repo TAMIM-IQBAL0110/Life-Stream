@@ -22,13 +22,7 @@ const loginController = async(req,res,next)=>{
         if(!user){
             return next({ status: 401, message: "Invalid phone number or password" });
         }
-        // check is verified
-        if(!user.isVerified){
-            return next({ 
-                status: 403, 
-                message: "Account not verified. Please verify your account before logging in." 
-            });
-        }
+        
         // Check if password matches
         const isMatch = await user.comparePassword(password);
         if(!isMatch){

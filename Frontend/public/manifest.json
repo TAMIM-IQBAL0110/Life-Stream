@@ -1,0 +1,17 @@
+{
+  "name": "BloodStream - Blood Donation App",
+  "short_name": "BloodStream",
+  "description": "Connect blood donors and recipients in real-time",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ea2a33",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

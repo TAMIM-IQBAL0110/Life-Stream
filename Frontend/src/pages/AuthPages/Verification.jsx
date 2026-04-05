@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import { verifyOTP, sendOTP } from '../../services/firebaseAuthService';
-import { API_PATHS, getFullUrl } from '../../utilities/apiPath';
+import { API_PATHS} from '../../utilities/apiPath';
 
 const Verification = () => {
   const navigate = useNavigate();
@@ -57,18 +57,6 @@ const Verification = () => {
       // Step 1: Verify OTP with Firebase
       const firebaseUser = await verifyOTP(otp);
       console.log('OTP verified with Firebase:', firebaseUser.uid);
-
-      // Step 2: Call backend verification endpoint
-      const verificationResponse = await fetch(getFullUrl(API_PATHS.AUTH.VERIFY), {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          phoneNumber: phoneNumber,
-          firebaseUID: firebaseUser.uid,
-        }),
-      });
 
       if (!verificationResponse.ok) {
         const errorData = await verificationResponse.json();

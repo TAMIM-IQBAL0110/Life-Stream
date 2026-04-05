@@ -1,6 +1,6 @@
 import User from "../models/donorSchema.js";
 import validatePhoneNumber from "../utilities/validatePhoneNumber.js";
-
+import generateToken from "../utilities/generateToken.js";
 
 const registrationController = async (req , res)=>{
 
@@ -54,7 +54,8 @@ const registrationController = async (req , res)=>{
                     phoneNumber: isUserExist.phoneNumber,
                     bloodGroup: isUserExist.bloodGroup,
                     location: isUserExist.location
-                }
+                },
+                token: generateToken(isUserExist._id),
             });
         }
         // Create new user
@@ -75,7 +76,8 @@ const registrationController = async (req , res)=>{
                 phoneNumber: newUser.phoneNumber,
                 bloodGroup: newUser.bloodGroup,
                 location: newUser.location
-            }
+            },
+            token: generateToken(newUser._id),
         });
     } catch (error) {
         console.error("Registration error details:", error.message);

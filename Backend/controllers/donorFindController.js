@@ -1,7 +1,8 @@
-import Donor from "../models/donorSchema";
+import Donor from "../models/donorSchema.js";
 
 const donorFindController = async (req, res) => {
     const { bloodGroup, location } = req.query;
+    console.log("Received query parameters:", { bloodGroup, location }); // Debug log
     if(!bloodGroup || !location){
         return res.status(400).json({
             success: false,

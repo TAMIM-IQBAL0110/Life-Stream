@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
-import { API_PATHS, getFullUrl } from '../../utilities/apiPath';
+import { API_PATHS} from '../../utilities/apiPath';
+import { useUser } from '../../context/UserContext';
+import axios from 'axios';
+import { baseUrl } from '../../utilities/apiPath';
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const { login } = useUser();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -26,16 +30,10 @@ const SignIn = () => {
       if (!formattedPhone.startsWith('+')) {
         formattedPhone = '+88' + formattedPhone;
       }
-
-      const response = await fetch(getFullUrl(API_PATHS.AUTH.LOGIN), {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          phoneNumber: formattedPhone,
-          password,
-        }),
+      const fullUrl=baseUrl + API_PATHS.AUTH.LOGIN;
+      const response = await axios.post(fullUrl, {
+        phoneNumber: formattedPhone,
+        password: password,
       });
 
       if (!response.ok) {
@@ -46,9 +44,8 @@ const SignIn = () => {
       const data = await response.json();
       console.log('Login successful:', data);
 
-      // Store user and token
-      localStorage.setItem('user', JSON.stringify(data.user));
-      localStorage.setItem('token', data.token);
+      // Store user and token in context and localStorage
+      login(data.user, data.token);
 
       // Redirect to dashboard
       navigate('/dashboard');
