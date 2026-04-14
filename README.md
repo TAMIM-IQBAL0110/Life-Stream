@@ -38,6 +38,39 @@ A full-stack web application designed to connect **blood donors** with **people 
 
 ---
 
+## 📁 Project Structure
+Based on the current development environment:
+
+### 🖥️ Backend
+```bash
+Backend/
+├── config/             
+├── controllers/        
+├── middlewares/        
+├── models/             
+├── node_modules/       
+├── routes/             
+├── utilities/          
+├── .env                
+├── package.json        
+└── server.js           
+```
+
+### 🌐 Frontend
+```bash
+Frontend/
+├── dist/               
+├── public/             
+├── src/                
+├── .env                
+├── index.html          
+├── package.json        
+├── tailwind.config.js  
+└── vite.config.js      
+```
+
+---
+
 ## 🏗️ Tech Stack
 
 ### 🌐 Frontend
@@ -68,15 +101,77 @@ A full-stack web application designed to connect **blood donors** with **people 
 
 ---
 
-## 📁 Project Structure (Simplified)
+## 🚀 Getting Started
 
+### Prerequisites
 ```plaintext
-/client   → React frontend  
-/server   → Node.js + Express backend  
-/database → MongoDB collections  
+Node.js (v16 or higher)
+MongoDB account/local instance
+npm or yarn 
+```
+### Installation
+Clone the repository:
+```bash
+git clone https://github.com/rizowan-rafi/Life-Stream_for_attachment
+```
+### Backend Setup:
+```bash
+cd Backend
+npm install
+```
+Create a .env file in the Backend/ folder:
+```bash
+MONGODB_URL=your_mongodb_url_here
+CLIENT_URL=http://localhost:5173
+PORT=3000
+JWT_SECRET=your_jwt_secret_here
+```
+Install nodemon:
+```bash
+npm install -g nodemon
 ```
 
+Start server: 
+```bash
+npm run dev
+```
+
+### Frontend Setup
+```bash
+cd ../Frontend
+npm install
+npm run dev
+```
+Create a .env file in the Frontend/ folder:
+```bash
+# Frontend Environment Configuration
+
+# Backend API Base URL (change based on your backend deployment)
+VITE_BASE_URL=http://localhost:3000
+
+
+
+```
 ---
+
+## 📸 Screenshots & Demo
+### 🖼️ App Preview
+#### login screen
+![login Screenshot](./screenshot/login.png)
+#### find-donor screen
+![find-donor Screenshot](./screenshot/find-donor.png)
+#### register screen
+![register Screenshot](./screenshot/register.png)
+#### about-us screen
+![about-us Screenshot](./screenshot/about-us.png)
+#### dashboard screen
+![dashboard Screenshot](./screenshot/dashboard.png)
+#### edit-profile screen
+![edit-profile Screenshot](./screenshot/edit-profile.png)
+#### home screen
+![home Screenshot](./screenshot/home.png)
+
+
 
 ## 👥 Contributors
 
