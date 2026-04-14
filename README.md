@@ -157,19 +157,19 @@ VITE_BASE_URL=http://localhost:3000
 ## 📸 Screenshots & Demo
 ### 🖼️ App Preview
 #### login screen
-![login Screenshot](./screenshot/login.png)
+![login Screenshot](./login.png)
 #### find-donor screen
-![find-donor Screenshot](./screenshot/find-donor.png)
+![find-donor Screenshot](./find-donor.png)
 #### register screen
-![register Screenshot](./screenshot/register.png)
+![register Screenshot](./register.png)
 #### about-us screen
-![about-us Screenshot](./screenshot/about-us.png)
+![about-us Screenshot](./about-us.png)
 #### dashboard screen
-![dashboard Screenshot](./screenshot/dashboard.png)
+![dashboard Screenshot](./dashboard.png)
 #### edit-profile screen
-![edit-profile Screenshot](./screenshot/edit-profile.png)
+![edit-profile Screenshot](./edit-profile.png)
 #### home screen
-![home Screenshot](./screenshot/home.png)
+![home Screenshot](./home.png)
 
 
 
