@@ -1,7 +1,7 @@
 import express from 'express'
 import generateToken from '../utilities/generateToken.js';
 import validatePhoneNumber from '../utilities/validatePhoneNumber.js';
-import User from '../models/user.js';
+import Donor from '../models/donorSchema.js';
 
 
 const loginController = async(req,res,next)=>{
@@ -17,18 +17,12 @@ const loginController = async(req,res,next)=>{
     }
     
     try{
-        // Find user by phone number
-        const user = await User.findOne({phoneNumber});
+        // Find donor by phone number
+        const user = await Donor.findOne({phoneNumber});
         if(!user){
             return next({ status: 401, message: "Invalid phone number or password" });
         }
-        // check is verified
-        if(!user.isVerified){
-            return next({ 
-                status: 403, 
-                message: "Account not verified. Please verify your account before logging in." 
-            });
-        }
+        
         // Check if password matches
         const isMatch = await user.comparePassword(password);
         if(!isMatch){

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
+import axiosInstance from '../../utilities/axiosInstance';
 import { sendOTP } from '../../services/firebaseAuthService';
-import { API_PATHS, getFullUrl } from '../../utilities/apiPath';
+import { API_PATHS } from '../../utilities/apiPath';
 
 const SignUp = ()=> {
   const navigate = useNavigate();
@@ -49,25 +50,15 @@ const SignUp = ()=> {
       }
 
       // Step 1: Register user on backend
-      const registrationResponse = await fetch(getFullUrl(API_PATHS.AUTH.REGISTRATION), {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phoneNumber: phoneNumber,
-          password: formData.password,
-        }),
+      const registrationResponse = await axiosInstance.post(API_PATHS.AUTH.REGISTRATION, {
+        name: formData.name,
+        phoneNumber: phoneNumber,
+        password: formData.password,
+        bloodGroup: formData.bloodGroup || 'O+',
+        location: formData.address || 'Not specified'
       });
 
-      if (!registrationResponse.ok) {
-        const errorData = await registrationResponse.json();
-        throw new Error(errorData.message || 'Registration failed');
-      }
-
-      const registrationData = await registrationResponse.json();
-      console.log('User registered:', registrationData);
+      console.log('User registered:', registrationResponse.data);
 
       // Step 2: Send OTP via Firebase
       await sendOTP(phoneNumber);
